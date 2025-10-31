@@ -50,7 +50,7 @@ public class Product {
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 			CascadeType.REFRESH })
 	@JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
-	private List<Categoty> categories;
+	private List<ProductCategoty> categories;
 
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY, cascade = { CascadeType.ALL })
 	private List<Thumbnail> thumbnails;
@@ -67,7 +67,7 @@ public class Product {
 	private List<CartDetail> cartDetail;
 
 	public Product(String productCode, String productName, String description, Double priceOrigin, Double price,
-			int amount, int sold, boolean hide, List<Categoty> categories, List<Thumbnail> thumbnails,
+			int amount, int sold, boolean hide, List<ProductCategoty> categories, List<Thumbnail> thumbnails,
 			List<Review> reviews, List<BillDetail> billDetail, List<CartDetail> cartDetail) {
 		this.productCode = productCode;
 		this.productName = productName;
@@ -159,11 +159,11 @@ public class Product {
 		this.hide = hide;
 	}
 
-	public List<Categoty> getCategories() {
+	public List<ProductCategoty> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Categoty> categories) {
+	public void setCategories(List<ProductCategoty> categories) {
 		this.categories = categories;
 	}
 

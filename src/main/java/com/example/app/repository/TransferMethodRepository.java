@@ -1,11 +1,11 @@
 package com.example.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.example.app.entity.TransferMethod;
 
-@Repository
+@RepositoryRestResource(path = "transfer-methods")
 public interface TransferMethodRepository extends JpaRepository<TransferMethod, Long> {
 
 }

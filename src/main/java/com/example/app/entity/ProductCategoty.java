@@ -16,7 +16,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "category")
-public class Categoty {
+public class ProductCategoty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -33,13 +33,13 @@ public class Categoty {
 	@JoinTable(name = "product_category", joinColumns = @JoinColumn(name = "category_id"), inverseJoinColumns = @JoinColumn(name = "product_id"))
 	private List<Product> products;
 
-	public Categoty(String categoryName, boolean hide, List<Product> products) {
+	public ProductCategoty(String categoryName, boolean hide, List<Product> products) {
 		this.categoryName = categoryName;
 		this.hide = hide;
 		this.products = products;
 	}
 
-	public Categoty() {
+	public ProductCategoty() {
 	}
 
 	public long getId() {
