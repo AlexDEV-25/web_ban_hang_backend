@@ -22,9 +22,6 @@ public class Thumbnail {
 	@Column(name = "thumbnail_name", length = 256)
 	private String thumbnailName;
 
-	@Column(name = "icon")
-	private boolean icon;
-
 	@Column(name = "link")
 	private String link;
 
@@ -36,9 +33,8 @@ public class Thumbnail {
 	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
 
-	public Thumbnail(String thumbnailName, boolean icon, String link, String data) {
+	public Thumbnail(String thumbnailName, String link, String data) {
 		this.thumbnailName = thumbnailName;
-		this.icon = icon;
 		this.link = link;
 		this.data = data;
 	}
@@ -60,14 +56,6 @@ public class Thumbnail {
 
 	public void setThumbnailName(String thumbnailName) {
 		this.thumbnailName = thumbnailName;
-	}
-
-	public boolean isIcon() {
-		return icon;
-	}
-
-	public void setIcon(boolean icon) {
-		this.icon = icon;
 	}
 
 	public String getLink() {
@@ -92,11 +80,5 @@ public class Thumbnail {
 
 	public void setProduct(Product product) {
 		this.product = product;
-	}
-
-	@Override
-	public String toString() {
-		return "Thumbnail [id=" + id + ", thumbnailName=" + thumbnailName + ", icon=" + icon + ", link=" + link
-				+ ", data=" + data + "]";
 	}
 }

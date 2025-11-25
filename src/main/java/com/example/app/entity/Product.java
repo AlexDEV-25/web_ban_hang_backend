@@ -32,6 +32,9 @@ public class Product {
 	@Column(name = "description", columnDefinition = "text")
 	private String description;
 
+	@Column(name = "product_image", length = 256)
+	private String productImage;
+
 	@Column(name = "price_origin")
 	private Double priceOrigin;
 
@@ -66,12 +69,15 @@ public class Product {
 			CascadeType.PERSIST, CascadeType.REFRESH })
 	private List<CartDetail> cartDetail;
 
-	public Product(String productCode, String productName, String description, Double priceOrigin, Double price,
-			int amount, int sold, boolean hide, List<ProductCategoty> categories, List<Thumbnail> thumbnails,
-			List<Review> reviews, List<BillDetail> billDetail, List<CartDetail> cartDetail) {
+	public Product(long id, String productCode, String productName, String description, String productImage,
+			Double priceOrigin, Double price, int amount, int sold, boolean hide, List<ProductCategoty> categories,
+			List<Thumbnail> thumbnails, List<Review> reviews, List<BillDetail> billDetail,
+			List<CartDetail> cartDetail) {
+		this.id = id;
 		this.productCode = productCode;
 		this.productName = productName;
 		this.description = description;
+		this.productImage = productImage;
 		this.priceOrigin = priceOrigin;
 		this.price = price;
 		this.amount = amount;
@@ -117,6 +123,14 @@ public class Product {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getProductImage() {
+		return productImage;
+	}
+
+	public void setProductImage(String productImage) {
+		this.productImage = productImage;
 	}
 
 	public Double getPriceOrigin() {
